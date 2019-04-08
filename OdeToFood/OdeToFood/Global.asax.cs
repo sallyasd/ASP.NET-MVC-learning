@@ -14,7 +14,8 @@ namespace OdeToFood
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
-        {
+        {   
+            // When app starts, this code will run once before any controllers execute
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
