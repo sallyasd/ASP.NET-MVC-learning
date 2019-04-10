@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OdeToFood.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,12 @@ namespace OdeToFood.Controllers
         // GET: Reviews
         public ActionResult Index()
         {
-            return View();
+            var model =
+                from r in _reviews
+                orderby r.Country
+                select r;
+
+            return View(model);
         }
 
         // GET: Reviews/Details/5
@@ -85,5 +91,18 @@ namespace OdeToFood.Controllers
                 return View();
             }
         }
+
+        static List<RestaurantReview> _reviews = new List<RestaurantReview>
+        {
+            new RestaurantReview
+            {
+                Id = 1,
+                Name = "Cinnamon Club",
+                City = "London",
+                Country = "UK",
+                Rating = 10,
+            }
+        };
+
     }
 }

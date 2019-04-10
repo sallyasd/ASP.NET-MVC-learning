@@ -17,7 +17,6 @@ namespace OdeToFood.Controllers
         // Actions are just public methods inside a controller class
         public ActionResult Search(string name)
         {
-            throw new Exception("ruh roh");
             var message = Server.HtmlEncode(name);
             return Content(message);
             //return RedirectToRoute("Default", new { controller = "Home", action = "About" }); // redirect to an action (index action, home controller)
